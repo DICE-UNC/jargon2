@@ -1,5 +1,10 @@
 # Jargon2
 
+### Developer: Mike Conway
+### Date:
+### Version:
+### Git Tag:
+
 Ok, Jargon has been in release now in its current incarnation for five years.  That's good, it's really stable.  Jargon was based on the original Jargon API from before iRODS3.3.1 and was refactored extensively, but retained a good deal of legacy code, especially in the protocol and packing instruction handling.
 
 This marks the beginning of a new 'clean room' Jargon that will track new developments in the iRODS protocol, such as switching to Avro, considering the use of 0mq, adding JMX extensions.
