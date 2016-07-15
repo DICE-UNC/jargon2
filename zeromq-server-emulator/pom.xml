@@ -8,10 +8,10 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.irods.jargon2</groupId>
-	<artifactId>zeromq-provider</artifactId>
+	<artifactId>zeromq-server-emulator</artifactId>
 	<packaging>jar</packaging>
-	<name>zeromq provider</name>
-	<description>Zeromq implementation of a protocol provider</description>
+	<name>zeromq server emulator</name>
+	<description>experimental emulator of an iRODS server</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.zeromq</groupId>

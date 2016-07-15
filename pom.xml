@@ -24,7 +24,6 @@
 	<scm>
 		<connection>scm:git:https://github.com/DICE-UNC/jargon2.git</connection>
 		<url>https://github.com/DICE-UNC/jargon2.git</url>
-
 	</scm>
 	<organization>
 		<name>DFC</name>
@@ -44,7 +43,6 @@
 		</developer>
 	</developers>
 	<repositories />
-
 	<distributionManagement>
 		<repository>
 			<id>internal.repo</id>
@@ -156,6 +154,11 @@
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>${sl4j.version}</version>
 			</dependency>
+<dependency>
+			<groupId>org.zeromq</groupId>
+			<artifactId>jeromq</artifactId>
+			<version>0.3.5</version>
+		</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
@@ -261,5 +264,6 @@
 	<modules>
 		<module>protocol-provider</module>
 		<module>zeromq-provider</module>
+		<module>zeromq-server-emulator</module>
 	</modules>
 </project>
