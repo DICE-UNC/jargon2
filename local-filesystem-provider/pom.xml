@@ -4,14 +4,13 @@
 	<parent>
 		<groupId>org.irods</groupId>
 		<artifactId>jargon2</artifactId>
-		<version>0.0.0.1-SNAPSHOT</version>
+		<version>4.3.0.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.irods.jargon2</groupId>
 	<artifactId>local-filesystem-provider</artifactId>
 	<packaging>jar</packaging>
-	<name>protocol provider api</name>
 	<description>Abstract API for local filesystem support</description>
 	<dependencies />
 
+	<name>local file api</name>
 </project>
