@@ -209,10 +209,6 @@
 		</plugins>
 	</build>
 	<modules>
-		<module>protocol-provider</module>
-		<module>local-filesystem-provider</module>
-		<module>nio-filesystem-provider</module>
-		<module>zeromq-provider</module>
-		<module>zeromq-server-emulator</module>
+		<module>jargon2-core-if</module>
 	</modules>
 </project>
