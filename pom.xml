@@ -210,5 +210,6 @@
 	</build>
 	<modules>
 		<module>jargon2-core-if</module>
+		<module>jargon2-core-util</module>
 	</modules>
 </project>
