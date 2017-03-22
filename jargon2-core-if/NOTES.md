@@ -14,6 +14,7 @@ Log messages will not be localized, too unweildy, and log messages are intended 
 
 #### jmx
 
+test done.  Look at prop management first, mesh with idea of cache
 
 #### instrumentation 
 
@@ -21,4 +22,12 @@ How can we relate to jmx?
 
 #### cache 
 
-Internal? Distributed?
+Internal? Distributed?  Do we do properties, client hints, shared data as one cache and have a thread local cache hook?
+
+#### nio/io 
+
+Review this again, performance differences?  Bridging between? Possible abstractions
+
+#### review PEPS in old iDROP	
+
+Add microservice and flows, plugging PEPs in client?
