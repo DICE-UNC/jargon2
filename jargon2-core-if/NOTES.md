@@ -12,6 +12,8 @@ MessageFormat and localization
 
 Log messages will not be localized, too unweildy, and log messages are intended for developers.  
 
+Consider use of notifications for exceptions (timeouts, slowdowns, finalizer connection leaks) via https://docs.oracle.com/javase/tutorial/jmx/notifs/index.html
+
 #### jmx
 
 test done.  Look at prop management first, mesh with idea of cache
@@ -27,6 +29,12 @@ Internal? Distributed?  Do we do properties, client hints, shared data as one ca
 #### nio/io 
 
 Review this again, performance differences?  Bridging between? Possible abstractions
+
+nio2 asych channels? http://www.ibm.com/developerworks/java/library/j-nio2-1/index.html
+
+consider parallel txfr with asynch channel groups?
+
+https://www.ibm.com/developerworks/java/tutorials/j-nio/j-nio.html
 
 #### review PEPS in old iDROP	
 
