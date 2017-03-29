@@ -22,3 +22,14 @@ How can we relate to jmx?
 #### cache 
 
 Internal? Distributed?
+
+
+
+# conventions
+
+#### Logging
+
+* WARN for eaten exceptions and soft errors
+* INFO is for method names and params and responses
+* DEBUG for internal logging of checkpoints within methods
+* TRACE dumps protocol messages

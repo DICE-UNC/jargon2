@@ -17,7 +17,24 @@ import java.nio.file.Path;
  */
 public interface FileIOOperations {
 
+	/**
+	 * Given a {@link Channel|, transfer the contents of the given file at the
+	 * {@link Path}. This channel represents a connection to iRODS expecting a
+	 * single buffer put
+	 * 
+	 * @param localSourcePath
+	 *            {@link Path} representing a local source file
+	 * @param irodsChannel
+	 *            {@link Channel} representing the iRODS agent in a state
+	 *            expecting to receive the local file data
+	 * @param ioMonitor
+	 *            {@link IOMonitor}, or null if not needed, that can receive
+	 *            status updates
+	 * @param ioContext
+	 *            {@link IOContext} that can be used to share information and
+	 *            signals between threads.
+	 */
 	public void transferLocalFileToIrodsSingleBuffer(final Path localSourcePath, final Channel irodsChannel,
-			final IOMonitor ioMonitor);
+			final IOMonitor ioMonitor, final IOContext ioContext);
 
 }
