@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.irods.jargon2.core.ioplugin;
+package org.irods.jargon2.core.context.monitor;
 
 /**
  * Represents an instantaneous representation of the status of an i/o operation.

@@ -1,11 +1,11 @@
-package org.irods.jargon2.utils.confg.props;
+package org.irods.jargon2.common.confg.props;
 
 /**
  * Interface for jargon
  * @author mconway
  *
  */
-public interface JargonPropertiesMBean {
+public interface JargonProperties {
 
 	int getConnectionTimeoutInSeconds();
 

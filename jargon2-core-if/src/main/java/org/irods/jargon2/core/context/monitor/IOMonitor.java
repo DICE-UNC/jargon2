@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.irods.jargon2.core.ioplugin;
+package org.irods.jargon2.core.context.monitor;
 
 /**
  * Monitor of an i/o process. This represents the movement of file or stream

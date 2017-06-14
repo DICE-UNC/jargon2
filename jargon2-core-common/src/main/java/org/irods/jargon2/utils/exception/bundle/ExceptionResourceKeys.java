@@ -14,5 +14,6 @@ public interface ExceptionResourceKeys {
 	public static String TEST_MSG1 = "TEST_MSG1";
 	public static String TEST_MSG2 = "TEST_MSG2";
 	public static String TEST_MSG3 = "TEST_MSG3";
+	public static String EXCEPT_lOCAL_IO = "EXCEPT_lOCAL_IO";
 
 }

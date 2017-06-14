@@ -5,4 +5,4 @@
  * @author mconway
  *
  */
-package org.irods.jargon2.utils.confg.props;
+package org.irods.jargon2.common.confg.props;
