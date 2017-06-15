@@ -16,6 +16,9 @@ import org.irods.jargon2.core.context.monitor.InstrumentationSink;
  */
 public class IOContext {
 
+	/**
+	 * Reference to controlling properties
+	 */
 	private JargonProperties jargonProperties;
 
 	/**
