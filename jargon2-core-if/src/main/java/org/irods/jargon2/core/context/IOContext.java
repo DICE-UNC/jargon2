@@ -27,4 +27,34 @@ public class IOContext {
 	 */
 	private InstrumentationSink instrumentationSink;
 
+	public JargonProperties getJargonProperties() {
+		return jargonProperties;
+	}
+
+	public void setJargonProperties(JargonProperties jargonProperties) {
+		this.jargonProperties = jargonProperties;
+	}
+
+	public InstrumentationSink getInstrumentationSink() {
+		return instrumentationSink;
+	}
+
+	public void setInstrumentationSink(InstrumentationSink instrumentationSink) {
+		this.instrumentationSink = instrumentationSink;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("IOContext [");
+		if (jargonProperties != null) {
+			builder.append("jargonProperties=").append(jargonProperties).append(", ");
+		}
+		if (instrumentationSink != null) {
+			builder.append("instrumentationSink=").append(instrumentationSink);
+		}
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

@@ -13,4 +13,12 @@ package org.irods.jargon2.core.context.monitor;
  */
 public interface InstrumentationSink {
 
+	/**
+	 * Report an IOMonitor instrument observation to be processed by the
+	 * particular sink in a certain way
+	 * 
+	 * @param ioMonitorStatusReport
+	 */
+	void reportObservation(IOMonitorStatusReport ioMonitorStatusReport);
+
 }

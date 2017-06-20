@@ -18,7 +18,10 @@ import org.irods.jargon2.common.confg.enumz.EnumIoStyle;
 public class CachedJargonProperties implements JargonProperties {
 
 	public static final String CONNECTION_TIMEOUT_IN_SECONDS = "connection.timeout";
+	public static final String INSTRUMENTED = "instrumented";
 	public static final String IO_STYLE = "io.style";
+	public static final String IO_FAST_CHANNEL_COPY = "io.fast.channel.copy";
+	public static final String IO_NIO_DIRECT = "io.nio.direct";
 
 	private ConcurrentHashMap<String, String> propertiesCache = new ConcurrentHashMap<>();
 
@@ -46,37 +49,47 @@ public class CachedJargonProperties implements JargonProperties {
 
 	@Override
 	public EnumIoStyle getEnumIoStyle() {
-		// TODO Auto-generated method stub
-		return null;
+		return EnumIoStyle.valueOf(propertiesCache.getOrDefault(IO_STYLE, EnumIoStyle.NIO.toString()));
 	}
 
 	@Override
 	public void setEnumIoStyle(EnumIoStyle enumIoStyle) {
-		// TODO Auto-generated method stub
+		propertiesCache.put(IO_STYLE, enumIoStyle.toString());
 
 	}
 
 	@Override
 	public boolean isUseNioDirect() {
-		// TODO Auto-generated method stub
-		return false;
+		return valAsBooleanOrFalse(IO_NIO_DIRECT);
+
 	}
 
 	@Override
 	public void setUseNioDirect(boolean useNioDirect) {
-		// TODO Auto-generated method stub
+		propertiesCache.put(IO_NIO_DIRECT, String.valueOf(useNioDirect));
 
 	}
 
 	@Override
 	public boolean isUseFastChannelCopy() {
-		// TODO Auto-generated method stub
-		return false;
+		return valAsBooleanOrFalse(IO_FAST_CHANNEL_COPY);
+
 	}
 
 	@Override
 	public void setUseFastChannelCopy(boolean useFastChannelCopy) {
-		// TODO Auto-generated method stub
+		propertiesCache.put(IO_FAST_CHANNEL_COPY, String.valueOf(useFastChannelCopy));
+
+	}
+
+	@Override
+	public boolean isInstrument() {
+		return valAsBooleanOrFalse(INSTRUMENTED);
+	}
+
+	@Override
+	public void setInstrument(boolean instrument) {
+		propertiesCache.put(INSTRUMENTED, String.valueOf(instrument));
 
 	}
 
@@ -86,6 +99,15 @@ public class CachedJargonProperties implements JargonProperties {
 			return 0;
 		} else {
 			return Integer.parseInt(stringVal);
+		}
+	}
+
+	private boolean valAsBooleanOrFalse(final String key) {
+		String stringVal = propertiesCache.get(key);
+		if (stringVal == null) {
+			return false;
+		} else {
+			return Boolean.valueOf(stringVal);
 		}
 	}
 

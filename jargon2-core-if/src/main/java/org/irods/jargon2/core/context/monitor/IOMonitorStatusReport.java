@@ -14,7 +14,7 @@ package org.irods.jargon2.core.context.monitor;
 public class IOMonitorStatusReport {
 
 	public enum IOOperType {
-		GET_TRANSFER, PUT_TRANSFER, INPUT, OUTPUT
+		GET_TRANSFER, PUT_TRANSFER, INPUT_READ, OUTPUT_WRITE
 	}
 
 	/**
@@ -22,30 +22,30 @@ public class IOMonitorStatusReport {
 	 * file size. For io, it's typically the number of bytes to be moved in
 	 * total. This could be the entire file, or a file segement.
 	 */
-	private final long totalSize;
+	private long totalSize;
 	/**
 	 * Amount moved in this operation, which is also reflected in the
 	 * <code>totalCompleted</code>
 	 */
-	private final long sizeThisOperation;
+	private long sizeThisOperation;
 	/**
 	 * Total progress towards the <code>totalSize</code>
 	 */
-	private final long totalCompleted;
+	private long totalCompleted;
 	/**
 	 * Time when the operation started. This represents the time of the current
 	 * invocation, not the total time if multiple invocations make up the whole
 	 * operation.
 	 */
-	private final long startInMillisThisOper;
+	private long startInMillisThisOper;
 	/**
 	 * Time when this operation completed
 	 */
-	private final long completeTimeInMillisthisOper;
+	private long completeTimeInMillisthisOper;
 	/**
 	 * Metadata describing the type of operation
 	 */
-	private final IOOperType ioOperType;
+	private IOOperType ioOperType;
 
 	/**
 	 * @param totalSize
@@ -64,6 +64,9 @@ public class IOMonitorStatusReport {
 		this.startInMillisThisOper = startInMillisThisOper;
 		this.completeTimeInMillisthisOper = completeTimeInMillisthisOper;
 		this.ioOperType = ioOperType;
+	}
+
+	public IOMonitorStatusReport() {
 	}
 
 	public long getTotalSize() {
@@ -102,6 +105,30 @@ public class IOMonitorStatusReport {
 		}
 		builder.append("]");
 		return builder.toString();
+	}
+
+	public void setTotalSize(long totalSize) {
+		this.totalSize = totalSize;
+	}
+
+	public void setSizeThisOperation(long sizeThisOperation) {
+		this.sizeThisOperation = sizeThisOperation;
+	}
+
+	public void setTotalCompleted(long totalCompleted) {
+		this.totalCompleted = totalCompleted;
+	}
+
+	public void setStartInMillisThisOper(long startInMillisThisOper) {
+		this.startInMillisThisOper = startInMillisThisOper;
+	}
+
+	public void setCompleteTimeInMillisthisOper(long completeTimeInMillisthisOper) {
+		this.completeTimeInMillisthisOper = completeTimeInMillisthisOper;
+	}
+
+	public void setIoOperType(IOOperType ioOperType) {
+		this.ioOperType = ioOperType;
 	}
 
 }

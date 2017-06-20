@@ -10,6 +10,7 @@ public class EnumIoStyleTest {
 		String test = EnumIoStyle.NIO.toString();
 		EnumIoStyle actual = EnumIoStyle.mapIoStyleToEnum(test);
 		Assert.assertNotNull("null enumIoStyle", actual);
+		Assert.assertEquals(EnumIoStyle.NIO, actual);
 	}
 
 }

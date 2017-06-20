@@ -4,12 +4,15 @@
 package org.irods.jargon2.core.pub.io.plugin.nio;
 
 import java.io.IOException;
-import java.nio.channels.Channel;
 import java.nio.channels.FileChannel;
+import java.nio.channels.WritableByteChannel;
 import java.nio.file.Path;
 
 import org.irods.jargon2.core.context.IOContext;
 import org.irods.jargon2.core.context.monitor.IOMonitor;
+import org.irods.jargon2.core.context.monitor.IOMonitorStatusReport;
+import org.irods.jargon2.core.context.monitor.IOMonitorStatusReport.IOOperType;
+import org.irods.jargon2.core.ioplugin.AbstractFileIOOperations;
 import org.irods.jargon2.core.ioplugin.FileIOOperations;
 import org.irods.jargon2.exception.io.JargonIOException;
 import org.irods.jargon2.utils.exception.bundle.ExceptionResourceKeys;
@@ -25,38 +28,61 @@ import org.slf4j.LoggerFactory;
  * @author mconway
  *
  */
-public class NIOFileIOOperationsImpl implements FileIOOperations {
+public class NIOFileIOOperationsImpl extends AbstractFileIOOperations implements FileIOOperations {
 
 	public static final Logger log = LoggerFactory.getLogger(NIOFileIOOperationsImpl.class);
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Constructor taking a context
 	 * 
-	 * @see org.irods.jargon2.core.ioplugin.FileIOOperations#
-	 * transferLocalFileToIrodsSingleBuffer(java.nio.file.Path,
-	 * java.nio.channels.Channel, org.irods.jargon2.core.ioplugin.IOMonitor,
-	 * org.irods.jargon2.core.ioplugin.IOContext)
+	 * @param ioContext
 	 */
+	public NIOFileIOOperationsImpl(IOContext ioContext) {
+		super(ioContext);
+	}
+
 	@Override
-	public void transferLocalFileToIrodsSingleBuffer(Path path, Channel channel, IOMonitor ioMonitor,
-			IOContext ioContext) throws JargonIOException {
+	public void transferLocalFileToIrodsSingleBuffer(Path path, WritableByteChannel channel, IOMonitor ioMonitor)
+			throws JargonIOException {
 		log.info("transferLocalFileToIrodsSingleBuffer()");
 		if (path == null) {
-			throw new IllegalArgumentException("null path");
+			throw new IllegalArgumentException(
+					MessageUtil.formatMessage(ExceptionResourceKeys.NULL_OR_EMPTY_PARAMETER, "path"));
 		}
 
 		if (channel == null) {
-			throw new IllegalArgumentException("null channel");
+			throw new IllegalArgumentException(
+					MessageUtil.formatMessage(ExceptionResourceKeys.NULL_OR_EMPTY_PARAMETER, "channel"));
 		}
 
 		log.info("path:{}", path);
 		log.info("channel:{}", channel);
 		log.info("ioMonitor:{}", ioMonitor);
-		log.info("ioContext:{}", ioContext);
 
 		FileChannel fileChannel;
 		try {
-			FileChannel.open(path);
+			fileChannel = FileChannel.open(path);
+
+			long startTime = System.currentTimeMillis();
+			if (getIoContext().getJargonProperties().isUseFastChannelCopy()) {
+				log.info("fast channel copy for file");
+				fileChannel.transferTo(0, fileChannel.size(), channel);
+				long endTime = System.currentTimeMillis();
+				log.info("successfully transferred");
+				if (getIoContext().getJargonProperties().isInstrument()) {
+					IOMonitorStatusReport statusReport = new IOMonitorStatusReport();
+					statusReport.setCompleteTimeInMillisthisOper(endTime);
+					statusReport.setIoOperType(IOOperType.OUTPUT_WRITE);
+					statusReport.setSizeThisOperation(fileChannel.size());
+					statusReport.setStartInMillisThisOper(startTime);
+					statusReport.setTotalCompleted(statusReport.getSizeThisOperation());
+					statusReport.setTotalSize(statusReport.getSizeThisOperation());
+					getIoContext().getInstrumentationSink().reportObservation(statusReport);
+				}
+			} else {
+				log.error("unsupported transfer method");
+				throw new UnsupportedOperationException();
+			}
 		} catch (IOException e) {
 			log.error("I/O Exception opening path:{}", path, e);
 			throw new JargonIOException(MessageUtil.formatMessage(ExceptionResourceKeys.EXCEPT_lOCAL_IO, path), e);

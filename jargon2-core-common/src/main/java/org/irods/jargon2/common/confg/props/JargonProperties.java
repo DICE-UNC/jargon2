@@ -11,14 +11,37 @@ import org.irods.jargon2.common.confg.enumz.EnumIoStyle;
 public interface JargonProperties {
 
 	/*
-	 * iRODS connection properties
+	 * -------------------------------------------------------------------------
+	 * ------------------------- General behavior properties
+	 */
+
+	/**
+	 * Is performance logging turned on?
+	 * 
+	 * @return <code>boolean</code> if logging is turned on
+	 */
+	boolean isInstrument();
+
+	/**
+	 * 
+	 * Turn insrumentation logging on or off, <code>true</code> turns on logging
+	 * to the configured {@link IOMonitor}
+	 * 
+	 * @param instrument
+	 */
+	void setInstrument(boolean instrument);
+
+	/*
+	 * -------------------------------------------------------------------------
+	 * ------------------------- iRODS connection properties
 	 */
 	int getConnectionTimeoutInSeconds();
 
 	void setConnectionTimeoutInSeconds(int connectionTimeoutInSeconds);
 
 	/*
-	 * General i/o properties
+	 * -------------------------------------------------------------------------
+	 * ------------------------- General i/o properties
 	 */
 
 	/**
@@ -31,7 +54,8 @@ public interface JargonProperties {
 	void setEnumIoStyle(EnumIoStyle enumIoStyle);
 
 	/*
-	 * local file system i/o properties
+	 * -------------------------------------------------------------------------
+	 * ------------------------- local file system i/o properties
 	 */
 
 	/**

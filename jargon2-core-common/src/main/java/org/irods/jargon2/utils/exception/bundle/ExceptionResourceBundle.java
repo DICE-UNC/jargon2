@@ -18,7 +18,9 @@ public class ExceptionResourceBundle extends ListResourceBundle {
 			{ ExceptionResourceKeys.TEST_MSG1, "Test message1" },
 			{ ExceptionResourceKeys.TEST_MSG2, "Test message1 {0}" },
 			{ ExceptionResourceKeys.TEST_MSG3, "Test message1 {0} {1}" },
+			{ ExceptionResourceKeys.CONFIG_EXCEPT_LOAD_CONFIG, "Exception loading configuration properties" },
 			{ ExceptionResourceKeys.EXCEPT_lOCAL_IO, "Local file IO error at: {0}" },
+			{ ExceptionResourceKeys.NULL_OR_EMPTY_PARAMETER, "Null or empty parameter {0}" }
 
 			// Localize to here
 	};

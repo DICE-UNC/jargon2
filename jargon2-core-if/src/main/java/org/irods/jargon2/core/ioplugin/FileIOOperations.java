@@ -3,10 +3,9 @@
  */
 package org.irods.jargon2.core.ioplugin;
 
-import java.nio.channels.Channel;
+import java.nio.channels.WritableByteChannel;
 import java.nio.file.Path;
 
-import org.irods.jargon2.core.context.IOContext;
 import org.irods.jargon2.core.context.monitor.IOMonitor;
 import org.irods.jargon2.exception.io.JargonIOException;
 
@@ -29,17 +28,15 @@ public interface FileIOOperations {
 	 * @param localSourcePath
 	 *            {@link Path} representing a local source file
 	 * @param irodsChannel
-	 *            {@link Channel} representing the iRODS agent in a state
-	 *            expecting to receive the local file data
+	 *            {@link ritableByteChannel} representing the iRODS agent in a
+	 *            state expecting to receive the local file data
 	 * @param ioMonitor
 	 *            {@link IOMonitor}, or null if not needed, that can receive
 	 *            status updates
-	 * @param ioContext
-	 *            {@link IOContext} that can be used to share information and
-	 *            signals between threads.
 	 * @throws JargonIOException
 	 */
-	public void transferLocalFileToIrodsSingleBuffer(final Path localSourcePath, final Channel irodsChannel,
-			final IOMonitor ioMonitor, final IOContext ioContext) throws JargonIOException;
+
+	void transferLocalFileToIrodsSingleBuffer(Path path, WritableByteChannel channel, IOMonitor ioMonitor)
+			throws JargonIOException;
 
 }
