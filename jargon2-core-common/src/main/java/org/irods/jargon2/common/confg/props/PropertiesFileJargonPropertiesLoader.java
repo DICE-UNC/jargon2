@@ -55,6 +55,7 @@ public class PropertiesFileJargonPropertiesLoader implements JargonPropertiesLoa
 					MessageUtil.formatMessage(ExceptionResourceKeys.CONFIG_EXCEPT_LOAD_CONFIG), e);
 		}
 
+		// FIXME: Add parse/validation utils and tests for missing values, etc
 		JargonProperties jargonProperties = new CachedJargonProperties();
 		jargonProperties.setConnectionTimeoutInSeconds(
 				Integer.parseInt(properties.getProperty(CachedJargonProperties.CONNECTION_TIMEOUT_IN_SECONDS)));

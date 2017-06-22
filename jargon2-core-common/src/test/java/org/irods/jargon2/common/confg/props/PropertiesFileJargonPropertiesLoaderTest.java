@@ -1,19 +1,18 @@
 package org.irods.jargon2.common.confg.props;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import junit.framework.Assert;
 
 public class PropertiesFileJargonPropertiesLoaderTest {
 
 	@Test
-	public void testPropertiesFileJargonPropertiesLoader() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testLoadJargonProperties() {
-		fail("Not yet implemented");
+		JargonPropertiesLoader loader = new PropertiesFileJargonPropertiesLoader("/properties/jargon1.properties");
+		JargonProperties props = loader.loadJargonProperties();
+		Assert.assertNotNull("no properties loaded", props);
+		Assert.assertNotNull(props.getConnectionTimeoutInSeconds());
+
 	}
 
 }
