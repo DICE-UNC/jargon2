@@ -4,7 +4,7 @@
 package org.irods.jargon2.core.context;
 
 import org.irods.jargon2.common.confg.props.JargonProperties;
-import org.irods.jargon2.core.context.monitor.InstrumentationSink;
+import org.irods.jargon2.core.context.monitor.IOMonitor;
 
 /**
  * Represents a shared, thread safe object between IO operations and the process
@@ -22,10 +22,10 @@ public class IOContext {
 	private JargonProperties jargonProperties;
 
 	/**
-	 * {@link InstrumentationSink} that can receive reports of performance
+	 * {@link IOMonitor} that can receive reports of performance
 	 * characteristics, timing, etc, per the message hierarcy
 	 */
-	private InstrumentationSink instrumentationSink;
+	private IOMonitor instrumentationSink;
 
 	public JargonProperties getJargonProperties() {
 		return jargonProperties;
@@ -35,11 +35,11 @@ public class IOContext {
 		this.jargonProperties = jargonProperties;
 	}
 
-	public InstrumentationSink getInstrumentationSink() {
+	public IOMonitor getInstrumentationSink() {
 		return instrumentationSink;
 	}
 
-	public void setInstrumentationSink(InstrumentationSink instrumentationSink) {
+	public void setInstrumentationSink(IOMonitor instrumentationSink) {
 		this.instrumentationSink = instrumentationSink;
 	}
 

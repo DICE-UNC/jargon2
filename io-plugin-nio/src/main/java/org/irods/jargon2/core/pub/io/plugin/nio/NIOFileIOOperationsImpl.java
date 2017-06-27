@@ -87,7 +87,6 @@ public class NIOFileIOOperationsImpl extends AbstractFileIOOperations implements
 			log.error("I/O Exception opening path:{}", path, e);
 			throw new JargonIOException(MessageUtil.formatMessage(ExceptionResourceKeys.EXCEPT_lOCAL_IO, path), e);
 		}
-
 	}
 
 }

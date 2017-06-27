@@ -11,5 +11,5 @@
 	<packaging>jar</packaging>
 	<description>Utilities and common code</description>
 	<dependencies />
-	<name>jargon2-core-util</name>
+	<name>jargon2-core-common</name>
 </project>

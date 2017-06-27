@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
  * @author mcc
  *
  */
-public class InMemoryQueueInstrumentationSink implements InstrumentationSink {
+public class InMemoryQueueInstrumentationSink implements IOMonitor {
 
 	private Queue<IOMonitorStatusReport> globalQueue = new ConcurrentLinkedQueue<>();
 	public static final Logger log = LoggerFactory.getLogger(InMemoryQueueInstrumentationSink.class);

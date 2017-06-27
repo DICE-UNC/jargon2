@@ -17,6 +17,11 @@
 			<artifactId>jargon2-core-if</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.irods</groupId>
+			<artifactId>jargon2-core-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>  
 	</dependencies>
 </project>
   
