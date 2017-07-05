@@ -212,5 +212,6 @@
 		<module>jargon2-core-if</module>
 		<module>jargon2-core-common</module>
 		<module>io-plugin-nio</module>
+		<module>test-support</module>
 	</modules>
 </project>
