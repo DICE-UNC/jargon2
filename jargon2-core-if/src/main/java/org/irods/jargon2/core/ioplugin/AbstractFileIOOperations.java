@@ -13,7 +13,7 @@ import org.irods.jargon2.utils.exception.bundle.ExceptionResourceKeys;
 import org.irods.jargon2.utils.exception.bundle.MessageUtil;
 
 /**
- * Abstract superclass for FileIOOperations implmementors
+ * Abstract superclass for FileIOOperations implementors
  * 
  * @author mcc
  *
