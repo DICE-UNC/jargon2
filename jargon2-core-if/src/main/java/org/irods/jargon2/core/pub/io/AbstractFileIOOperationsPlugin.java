@@ -1,13 +1,14 @@
 /**
  * 
  */
-package org.irods.jargon2.core.ioplugin;
+package org.irods.jargon2.core.pub.io;
 
 import java.nio.channels.WritableByteChannel;
 import java.nio.file.Path;
 
 import org.irods.jargon2.core.context.IOContext;
 import org.irods.jargon2.core.context.monitor.IOMonitor;
+import org.irods.jargon2.core.ioplugin.FileIOOperations;
 import org.irods.jargon2.exception.io.JargonIOException;
 import org.irods.jargon2.utils.exception.bundle.ExceptionResourceKeys;
 import org.irods.jargon2.utils.exception.bundle.MessageUtil;
@@ -18,7 +19,7 @@ import org.irods.jargon2.utils.exception.bundle.MessageUtil;
  * @author mcc
  *
  */
-public abstract class AbstractFileIOOperations implements FileIOOperations {
+public abstract class AbstractFileIOOperationsPlugin implements FileIOOperations {
 
 	private final IOContext ioContext;
 
@@ -30,7 +31,7 @@ public abstract class AbstractFileIOOperations implements FileIOOperations {
 	 * @param ioContext
 	 *            {@link IOContext} with config and other context
 	 */
-	public AbstractFileIOOperations(IOContext ioContext) {
+	public AbstractFileIOOperationsPlugin(IOContext ioContext) {
 		super();
 		if (ioContext == null) {
 			throw new IllegalArgumentException(

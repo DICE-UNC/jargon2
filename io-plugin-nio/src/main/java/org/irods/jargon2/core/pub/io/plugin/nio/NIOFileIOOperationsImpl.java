@@ -12,8 +12,8 @@ import org.irods.jargon2.core.context.IOContext;
 import org.irods.jargon2.core.context.monitor.IOMonitor;
 import org.irods.jargon2.core.context.monitor.IOMonitorStatusReport;
 import org.irods.jargon2.core.context.monitor.IOMonitorStatusReport.IOOperType;
-import org.irods.jargon2.core.ioplugin.AbstractFileIOOperations;
 import org.irods.jargon2.core.ioplugin.FileIOOperations;
+import org.irods.jargon2.core.pub.io.AbstractFileIOOperationsPlugin;
 import org.irods.jargon2.exception.io.JargonIOException;
 import org.irods.jargon2.utils.exception.bundle.ExceptionResourceKeys;
 import org.irods.jargon2.utils.exception.bundle.MessageUtil;
@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
  * @author mconway
  *
  */
-public class NIOFileIOOperationsImpl extends AbstractFileIOOperations implements FileIOOperations {
+public class NIOFileIOOperationsImpl extends AbstractFileIOOperationsPlugin implements FileIOOperations {
 
 	public static final Logger log = LoggerFactory.getLogger(NIOFileIOOperationsImpl.class);
 

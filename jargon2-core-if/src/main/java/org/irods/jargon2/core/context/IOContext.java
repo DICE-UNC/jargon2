@@ -7,9 +7,8 @@ import org.irods.jargon2.common.confg.props.JargonProperties;
 import org.irods.jargon2.core.context.monitor.IOMonitor;
 
 /**
- * Represents a shared, thread safe object between IO operations and the process
- * calling those operations. This allows cancellation, pause, and other types of
- * information to be passed to the i/o process.
+ * Represents a shared, thread safe object for common data structures and
+ * configuration
  * 
  * @author mconway
  *
