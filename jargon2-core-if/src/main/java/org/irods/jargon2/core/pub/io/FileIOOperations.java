@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.irods.jargon2.core.ioplugin;
+package org.irods.jargon2.core.pub.io;
 
 import java.nio.channels.WritableByteChannel;
 import java.nio.file.Path;

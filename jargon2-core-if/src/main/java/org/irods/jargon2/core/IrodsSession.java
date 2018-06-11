@@ -1,7 +1,6 @@
-package org.irods.jargon2.core.protocol;
+package org.irods.jargon2.core;
 
 import org.irods.jargon2.common.auth.IrodsPrincipal;
-import org.irods.jargon2.core.context.IOContext;
 import org.irods.jargon2.exception.JargonException;
 import org.irods.jargon2.exception.auth.AuthenticationException;
 import org.irods.jargon2.utils.exception.bundle.ExceptionResourceKeys;
@@ -15,7 +14,7 @@ import org.slf4j.LoggerFactory;
  * <code>IrodsClient</code> that can carry out operations on iRODS.
  * <p/>
  * This can be created via the {@link} IrodsSession factory for a pure in-code
- * usage pattern, or wired together with appropiate configuration and plugins
+ * usage pattern, or wired together with appropriate configuration and plugins
  * via Spring.
  * 
  * @author mcc
@@ -50,6 +49,7 @@ public class IrodsSession {
 					MessageUtil.formatMessage(ExceptionResourceKeys.NULL_OR_EMPTY_PARAMETER, "irodsPrincipal"));
 
 		log.info("delegating to irodsProtocolProviderPlugin");
+		return null;
 
 	}
 

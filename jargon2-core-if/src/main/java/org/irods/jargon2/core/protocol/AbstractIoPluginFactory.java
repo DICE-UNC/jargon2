@@ -3,7 +3,7 @@
  */
 package org.irods.jargon2.core.protocol;
 
-import org.irods.jargon2.core.context.IOContext;
+import org.irods.jargon2.core.IOContext;
 import org.irods.jargon2.core.pub.io.AbstractFileIOOperationsPlugin;
 
 /**

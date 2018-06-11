@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.irods.jargon2.core.context;
+package org.irods.jargon2.core;
 
 import org.irods.jargon2.common.confg.props.JargonProperties;
 import org.irods.jargon2.core.context.monitor.IOMonitor;
@@ -22,7 +22,7 @@ public class IOContext {
 
 	/**
 	 * {@link IOMonitor} that can receive reports of performance
-	 * characteristics, timing, etc, per the message hierarcy
+	 * characteristics, timing, etc, per the message hierarchy
 	 */
 	private IOMonitor instrumentationSink;
 
